@@ -1,8 +1,8 @@
 {
     "server": {
-        "port": 8090
+        "port": 8080
     },
     "application" : {
-        "name" : "Pingadoodle"
+        "name" : "NoobsJS Sample Monitoring Application"
     }
 }
