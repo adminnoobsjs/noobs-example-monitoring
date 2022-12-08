@@ -1,0 +1,812 @@
+<!doctype html>
+<!--
+* .
+* @version 1.0.0-beta12
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pingadoodle - Monitor it baby</title>
+    <!-- CSS files -->
+    <link href="/lib/css/tabler.min.css" rel="stylesheet" />
+    <link href="/lib/css/tabler-flags.min.css" rel="stylesheet" />
+    <link href="/lib/css/tabler-payments.min.css" rel="stylesheet" />
+    <link href="/lib/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link href="/lib/css/demo.min.css" rel="stylesheet" />
+    <style>
+        @import url('https://rsms.me/inter/inter.css');
+
+        :root {
+            --tblr-font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="/lib/js/demo-theme.min.js"></script>
+    <div class="page">
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./index.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                            <form action="./" method="get" autocomplete="off" novalidate>
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="10" cy="10" r="7" />
+                                            <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                                    </span>
+                                    <input type="text" value="" class="form-control" placeholder="Search…"
+                                        aria-label="Search in website">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <!-- Page body -->
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-cards">
+                        <div class="col-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <h3 class="card-title">Invoices</h3>
+                              </div>
+                              <div class="card-body border-bottom py-3">
+                                <div class="d-flex">
+                                  <div class="text-muted">
+                                    Show
+                                    <div class="mx-2 d-inline-block">
+                                      <input type="text" class="form-control form-control-sm" value="8" size="3" aria-label="Invoices count">
+                                    </div>
+                                    entries
+                                  </div>
+                                  <div class="ms-auto text-muted">
+                                    Search:
+                                    <div class="ms-2 d-inline-block">
+                                      <input type="text" class="form-control form-control-sm" aria-label="Search invoice">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="table-responsive">
+                                <table class="table card-table table-vcenter text-nowrap datatable">
+                                  <thead>
+                                    <tr>
+                                      <th class="w-1"><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select all invoices"></th>
+                                      <th class="w-1">No. <!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-sm text-dark icon-thick" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="6 15 12 9 18 15"></polyline></svg>
+                                      </th>
+                                      <th>Invoice Subject</th>
+                                      <th>Client</th>
+                                      <th>VAT No.</th>
+                                      <th>Created</th>
+                                      <th>Status</th>
+                                      <th>Price</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001401</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Design Works</a></td>
+                                      <td>
+                                        <span class="flag flag-country-us"></span>
+                                        Carlson Limited
+                                      </td>
+                                      <td>
+                                        87956621
+                                      </td>
+                                      <td>
+                                        15 Dec 2017
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-success me-1"></span> Paid
+                                      </td>
+                                      <td>$887</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001402</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">UX Wireframes</a></td>
+                                      <td>
+                                        <span class="flag flag-country-gb"></span>
+                                        Adobe
+                                      </td>
+                                      <td>
+                                        87956421
+                                      </td>
+                                      <td>
+                                        12 Apr 2017
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-warning me-1"></span> Pending
+                                      </td>
+                                      <td>$1200</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001403</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">New Dashboard</a></td>
+                                      <td>
+                                        <span class="flag flag-country-de"></span>
+                                        Bluewolf
+                                      </td>
+                                      <td>
+                                        87952621
+                                      </td>
+                                      <td>
+                                        23 Oct 2017
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-warning me-1"></span> Pending
+                                      </td>
+                                      <td>$534</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001404</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Landing Page</a></td>
+                                      <td>
+                                        <span class="flag flag-country-br"></span>
+                                        Salesforce
+                                      </td>
+                                      <td>
+                                        87953421
+                                      </td>
+                                      <td>
+                                        2 Sep 2017
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-secondary me-1"></span> Due in 2 Weeks
+                                      </td>
+                                      <td>$1500</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001405</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Marketing Templates</a></td>
+                                      <td>
+                                        <span class="flag flag-country-pl"></span>
+                                        Printic
+                                      </td>
+                                      <td>
+                                        87956621
+                                      </td>
+                                      <td>
+                                        29 Jan 2018
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-danger me-1"></span> Paid Today
+                                      </td>
+                                      <td>$648</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001406</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Sales Presentation</a></td>
+                                      <td>
+                                        <span class="flag flag-country-br"></span>
+                                        Tabdaq
+                                      </td>
+                                      <td>
+                                        87956621
+                                      </td>
+                                      <td>
+                                        4 Feb 2018
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-secondary me-1"></span> Due in 3 Weeks
+                                      </td>
+                                      <td>$300</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001407</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Logo &amp; Print</a></td>
+                                      <td>
+                                        <span class="flag flag-country-us"></span>
+                                        Apple
+                                      </td>
+                                      <td>
+                                        87956621
+                                      </td>
+                                      <td>
+                                        22 Mar 2018
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-success me-1"></span> Paid Today
+                                      </td>
+                                      <td>$2500</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td><input class="form-check-input m-0 align-middle" type="checkbox" aria-label="Select invoice"></td>
+                                      <td><span class="text-muted">001408</span></td>
+                                      <td><a href="invoice.html" class="text-reset" tabindex="-1">Icons</a></td>
+                                      <td>
+                                        <span class="flag flag-country-pl"></span>
+                                        Tookapic
+                                      </td>
+                                      <td>
+                                        87956621
+                                      </td>
+                                      <td>
+                                        13 May 2018
+                                      </td>
+                                      <td>
+                                        <span class="badge bg-success me-1"></span> Paid Today
+                                      </td>
+                                      <td>$940</td>
+                                      <td class="text-end">
+                                        <span class="dropdown">
+                                          <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+                                          <div class="dropdown-menu dropdown-menu-end">
+                                            <a class="dropdown-item" href="#">
+                                              Action
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                              Another action
+                                            </a>
+                                          </div>
+                                        </span>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <div class="card-footer d-flex align-items-center">
+                                <p class="m-0 text-muted">Showing <span>1</span> to <span>8</span> of <span>16</span> entries</p>
+                                <ul class="pagination m-0 ms-auto">
+                                  <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                      <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="15 6 9 12 15 18"></polyline></svg>
+                                      prev
+                                    </a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                  <li class="page-item">
+                                    <a class="page-link" href="#">
+                                      next <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+                                      <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <span class="status-indicator status-green status-indicator-animated">
+                                        <span class="status-indicator-circle"></span>
+                                        <span class="status-indicator-circle"></span>
+                                        <span class="status-indicator-circle"></span>
+                                    </span>
+                                    <!--<div>
+                                        <h2 class="page-title">
+                                            tabler-icons.io
+                                        </h2>
+                                        <div class="text-muted">
+                                            <ul class="list-inline list-inline-dots mb-0">
+                                                <li class="list-inline-item"><span class="text-green">Up</span></li>
+                                                <li class="list-inline-item">Checked every 3 minutes</li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="col-md-auto ms-auto d-print-none">
+                                        <div class="btn-list">
+                                            <a href="#" class="btn">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/settings -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path
+                                                        d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                                    <circle cx="12" cy="12" r="3" /></svg>
+                                                Configure
+                                            </a>
+                                            <a href="#" class="btn btn-primary">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/player-pause -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <rect x="6" y="5" width="4" height="14" rx="1" />
+                                                    <rect x="14" y="5" width="4" height="14" rx="1" /></svg>
+                                                Pause this monitor
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="subheader">Currently up for</div>
+                                    <div class="h3 m-0">14 days 2 hours 54 mins 34 seconds</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="subheader">Last checked at</div>
+                                    <div class="h3 m-0">27 seconds ago</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="subheader">Incidents</div>
+                                    <div class="h3 m-0">3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Response times across regions in the last day</h3>
+                                    <div id="chart-uptime"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Uptime incidents per day</h3>
+                                    <div id="chart-uptime-incidents"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-table table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Time period</th>
+                                                <th>Availability</th>
+                                                <th>Downtime</th>
+                                                <th>Incidents</th>
+                                                <th>Longest incident</th>
+                                                <th>Avg. incident</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Today</td>
+                                                <td>98.9533%</td>
+                                                <td>1 minute</td>
+                                                <td>1</td>
+                                                <td>1 minute</td>
+                                                <td>1 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last 7 days</td>
+                                                <td>98.9533%</td>
+                                                <td>1 minute</td>
+                                                <td>1</td>
+                                                <td>1 minute</td>
+                                                <td>1 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last 30 days</td>
+                                                <td>98.9533%</td>
+                                                <td>1 minute</td>
+                                                <td>1</td>
+                                                <td>1 minute</td>
+                                                <td>1 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Last 365 days</td>
+                                                <td>98.9533%</td>
+                                                <td>1 minute</td>
+                                                <td>1</td>
+                                                <td>1 minute</td>
+                                                <td>1 minute</td>
+                                            </tr>
+                                            <tr>
+                                                <td>All time</td>
+                                                <td>98.9533%</td>
+                                                <td>1 minute</td>
+                                                <td>1</td>
+                                                <td>1 minute</td>
+                                                <td>1 minute</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="row g-0">
+                              <div class="col-3 d-none d-md-block border-end">
+                                <div class="card-body">
+                                  <h4 class="subheader">Business settings</h4>
+                                  <div class="list-group list-group-transparent">
+                                    <a href="./settings.html" class="list-group-item list-group-item-action d-flex align-items-center active">My Account</a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">My Notifications</a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">Connected Apps</a>
+                                    <a href="./settings-plan.html" class="list-group-item list-group-item-action d-flex align-items-center">Plans</a>
+                                    <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">Billing &amp; Invoices</a>
+                                  </div>
+                                  <h4 class="subheader mt-4">Experience</h4>
+                                  <div class="list-group list-group-transparent">
+                                    <a href="#" class="list-group-item list-group-item-action">Give Feedback</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col d-flex flex-column">
+                                <div class="card-body">
+                                  <h2 class="mb-4">My Account</h2>
+                                  <h3 class="card-title">Profile Details</h3>
+                                  <div class="row align-items-center">
+                                    <div class="col-auto"><span class="avatar avatar-xl" style="background-image: url(./static/avatars/000m.jpg)"></span>
+                                    </div>
+                                    <div class="col-auto"><a href="#" class="btn">
+                                        Change avatar
+                                      </a></div>
+                                    <div class="col-auto"><a href="#" class="btn btn-ghost-danger">
+                                        Delete avatar
+                                      </a></div>
+                                  </div>
+                                  <h3 class="card-title mt-4">Business Profile</h3>
+                                  <div class="row g-3">
+                                    <div class="col-md">
+                                      <div class="form-label">Business Name</div>
+                                      <input type="text" class="form-control" value="Tabler">
+                                    </div>
+                                    <div class="col-md">
+                                      <div class="form-label">Business ID</div>
+                                      <input type="text" class="form-control" value="560afc32">
+                                    </div>
+                                    <div class="col-md">
+                                      <div class="form-label">Location</div>
+                                      <input type="text" class="form-control" value="Peimei, China">
+                                    </div>
+                                  </div>
+                                  <h3 class="card-title mt-4">Email</h3>
+                                  <p class="card-subtitle">This contact will be shown to others publicly, so choose it carefully.</p>
+                                  <div>
+                                    <div class="row g-2">
+                                      <div class="col-auto">
+                                        <input type="text" class="form-control w-auto" value="paweluna@howstuffworks.com">
+                                      </div>
+                                      <div class="col-auto"><a href="#" class="btn">
+                                          Change
+                                        </a></div>
+                                    </div>
+                                  </div>
+                                  <h3 class="card-title mt-4">Password</h3>
+                                  <p class="card-subtitle">You can set a permanent password if you don't want to use temporary login codes.</p>
+                                  <div>
+                                    <a href="#" class="btn">
+                                      Set new password
+                                    </a>
+                                  </div>
+                                  <h3 class="card-title mt-4">Public profile</h3>
+                                  <p class="card-subtitle">Making your profile public means that anyone on the Dashkit network will be able to find
+                                    you.</p>
+                                  <div>
+                                    <label class="form-check form-switch form-switch-lg">
+                                      <input class="form-check-input" type="checkbox">
+                                      <span class="form-check-label form-check-label-on">You're currently visible</span>
+                                      <span class="form-check-label form-check-label-off">You're
+                                        currently invisible</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="card-footer bg-transparent mt-auto">
+                                  <div class="btn-list justify-content-end">
+                                    <a href="#" class="btn">
+                                      Cancel
+                                    </a>
+                                    <a href="#" class="btn btn-primary">
+                                      Submit
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Libs JS -->
+    <script src="/lib/libs/apexcharts/lib/apexcharts.min.js" defer></script>
+    <!-- Tabler Core -->
+    <script src="/lib/js/tabler.min.js" defer></script>
+    <script src="/lib/js/demo.min.js" defer></script>
+    <script>
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts && (new ApexCharts(document.getElementById('chart-uptime'), {
+                chart: {
+                    type: "area",
+                    fontFamily: 'inherit',
+                    height: 240,
+                    parentHeightOffset: 0,
+                    toolbar: {
+                        show: false,
+                    },
+                    animations: {
+                        enabled: false
+                    },
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    opacity: .16,
+                    type: 'solid'
+                },
+                stroke: {
+                    width: 2,
+                    lineCap: "round",
+                    curve: "smooth",
+                },
+                series: [{
+                    name: "Uptime",
+                    data: [150, 160, 170, 161, 167, 162, 161, 152, 141, 144, 154, 166, 176, 187, 198, 210, 196, 207, 200, 187, 192, 204, 193, 204, 208, 196, 193, 178, 191, 204, 218, 211, 218, 216, 201, 197, 190, 179, 172, 158, 159, 147, 152, 152, 144, 137, 136, 123, 112, 99, 100, 95, 105, 116, 125, 124, 133, 129, 116, 119, 109, 114, 115, 111, 96, 104, 104, 102, 116, 126, 117, 130, 124, 126, 131, 143, 130, 116, 118, 122, 132, 126, 136, 123, 112, 116, 113, 113, 109, 99, 100, 95, 83, 79, 64, 79, 81, 94, 99, 97, 83, 71, 75, 69, 71, 75, 84, 90, 100, 96, 108, 102, 116, 112, 112, 102, 115, 120, 118, 118]
+                }],
+                grid: {
+                    padding: {
+                        top: -20,
+                        right: 0,
+                        left: -4,
+                        bottom: -4
+                    },
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: 'datetime',
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4
+                    },
+                },
+                labels: [
+                    '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26', '2020-07-27', '2020-07-28', '2020-07-29', '2020-07-30', '2020-07-31', '2020-08-01', '2020-08-02', '2020-08-03', '2020-08-04', '2020-08-05', '2020-08-06', '2020-08-07', '2020-08-08', '2020-08-09', '2020-08-10', '2020-08-11', '2020-08-12', '2020-08-13', '2020-08-14', '2020-08-15', '2020-08-16', '2020-08-17', '2020-08-18', '2020-08-19', '2020-08-20', '2020-08-21', '2020-08-22', '2020-08-23', '2020-08-24', '2020-08-25', '2020-08-26', '2020-08-27', '2020-08-28', '2020-08-29', '2020-08-30', '2020-08-31', '2020-09-01', '2020-09-02', '2020-09-03', '2020-09-04', '2020-09-05', '2020-09-06', '2020-09-07', '2020-09-08', '2020-09-09', '2020-09-10', '2020-09-11', '2020-09-12', '2020-09-13', '2020-09-14', '2020-09-15', '2020-09-16', '2020-09-17', '2020-09-18', '2020-09-19', '2020-09-20', '2020-09-21', '2020-09-22', '2020-09-23', '2020-09-24', '2020-09-25', '2020-09-26', '2020-09-27', '2020-09-28', '2020-09-29', '2020-09-30', '2020-10-01', '2020-10-02', '2020-10-03', '2020-10-04', '2020-10-05', '2020-10-06', '2020-10-07', '2020-10-08', '2020-10-09', '2020-10-10', '2020-10-11', '2020-10-12', '2020-10-13', '2020-10-14', '2020-10-15', '2020-10-16', '2020-10-17'
+                ],
+                colors: [tabler.getColor("primary")],
+                legend: {
+                    show: false,
+                },
+            })).render();
+        });
+      // @formatter:on
+    </script>
+    <script>
+        // @formatter:off
+        document.addEventListener("DOMContentLoaded", function () {
+            window.ApexCharts && (new ApexCharts(document.getElementById('chart-uptime-incidents'), {
+                chart: {
+                    type: "bar",
+                    fontFamily: 'inherit',
+                    height: 240,
+                    parentHeightOffset: 0,
+                    toolbar: {
+                        show: false,
+                    },
+                    animations: {
+                        enabled: false
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        columnWidth: '50%',
+                    }
+                },
+                dataLabels: {
+                    enabled: false,
+                },
+                fill: {
+                    opacity: 1,
+                },
+                series: [{
+                    name: "Uptime incidents",
+                    data: [1, 2, 6, 3, 1, 1, 2, 5, 2, 5, 6, 2, 4, 3, 4, 5, 4, 3, 2, 1, 2, 0, 2, 1, 1]
+                }],
+                grid: {
+                    padding: {
+                        top: -20,
+                        right: 0,
+                        left: -4,
+                        bottom: -4
+                    },
+                    strokeDashArray: 4,
+                },
+                xaxis: {
+                    labels: {
+                        padding: 0,
+                    },
+                    tooltip: {
+                        enabled: false
+                    },
+                    axisBorder: {
+                        show: false,
+                    },
+                    type: 'datetime',
+                },
+                yaxis: {
+                    labels: {
+                        padding: 4
+                    },
+                    max: 20,
+                },
+                labels: [
+                    '2020-06-20', '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02', '2020-07-03', '2020-07-04', '2020-07-05', '2020-07-06', '2020-07-07', '2020-07-08', '2020-07-09', '2020-07-10', '2020-07-11', '2020-07-12', '2020-07-13', '2020-07-14'
+                ],
+                colors: [tabler.getColor("red")],
+                legend: {
+                    show: false,
+                },
+            })).render();
+        });
+      // @formatter:on
+    </script>
+</body>
+
+</html>

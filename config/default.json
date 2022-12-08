@@ -1,9 +1,8 @@
 {
     "server": {
-        "host": "localhost",
         "port": 8090
     },
     "application" : {
-        "name" : "Noobs JS Sample Monitoring application"
+        "name" : "Pingadoodle"
     }
 }
