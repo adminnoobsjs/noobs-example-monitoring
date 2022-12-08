@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/adminnoobsjs/noobs-monitoring-sample/issues"
   },
-  "homepage": "https://github.com/adminnoobsjs/noobs-monitoring-sample#readme"
+  "homepage": "https://github.com/adminnoobsjs/noobs-monitoring-sample#readme",
+  "dependencies": {
+    "noobs-core": "*"
+  }
 }
