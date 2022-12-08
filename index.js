@@ -39,12 +39,12 @@ monitor.initialise = function () {
    });
 
    // Indicate that the platform has started up
-   monitor.noobs.core.services.caching.set('noobs-startup', Date());
+   monitor.noobs.core.services.caching.set('monitor-startup', Date());
 
    // Schedule the Shnakkydoodle heartbeat
-   monitor.noobs.core.services.scheduling.schedule('noobs-core-hearbeat', '1 * * * * *', function () {
-      monitor.noobs.core.services.logging.log('noobs core heartbeat');
-      monitor.noobs.core.services.caching.set('noobs-core-running', Date());
+   monitor.noobs.core.services.scheduling.schedule('monitor-core-hearbeat', '1 * * * * *', function () {
+      monitor.noobs.core.services.logging.log('monitor heartbeat');
+      monitor.noobs.core.services.caching.set('monitor-running', Date());
    });
 
    // Launch a test server
