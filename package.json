@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/adminnoobsjs/noobs-monitoring-sample#readme",
   "dependencies": {
-    "noobs-core": "1.0.5"
+    "noobs-core": "1.0.6"
   }
 }
