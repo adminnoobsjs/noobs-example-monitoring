@@ -19,7 +19,7 @@ module.exports = function (moduleManager) {
     _routeManager.initialise = function () {
 
         // Extract the app from the parameters and configure
-        var _interfaceManager = moduleManager.noobs.core.services.interface ?  moduleManager.noobs.core.services.interface : null;
+        var _interfaceManager = moduleManager.noobly.core.services.interface ?  moduleManager.noobly.core.services.interface : null;
         _interfaceManager.app().use(express.json())
 
         // The server ping

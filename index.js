@@ -3,13 +3,12 @@
  * It can be used as a model of how to create a consuming application
  */
 'use strict';
-const noobscore = require('noobs-core');
 const events = require('events');
 
 var monitor = {};
 monitor.events = new events.EventEmitter();
 monitor.parameters = {};
-monitor.noobs = noobscore(monitor);
+monitor.noobly = require('noobly-core')(monitor);
 
 monitor.models = {};
 monitor.models.users = require('./models/users');
@@ -34,22 +33,22 @@ monitor.views = ((monitor.views != null) ? monitor.views : require('./views')(mo
 monitor.initialise = function () {
 
    // Add the event listener
-   monitor.noobs.core.events.addListener('event', function (data) {
-      noobs.core.services.logging.debug('Event: type: ' + data.type + ' message: ' + data.message);
+   monitor.noobly.core.events.addListener('event', function (data) {
+      monitor.noobly.core.services.logging.debug('Event: type: ' + data.type + ' message: ' + data.message);
    });
 
    // Indicate that the platform has started up
-   monitor.noobs.core.services.caching.set('monitor-startup', Date());
+   monitor.noobly.core.services.caching.set('monitor-startup', Date());
 
    // Schedule the Shnakkydoodle heartbeat
-   monitor.noobs.core.services.scheduling.schedule('monitor-core-hearbeat', '1 * * * * *', function () {
-      monitor.noobs.core.services.logging.log('monitor heartbeat');
-      monitor.noobs.core.services.caching.set('monitor-running', Date());
+   monitor.noobly.core.services.scheduling.schedule('monitor-core-hearbeat', '1 * * * * *', function () {
+      monitor.noobly.core.services.logging.log('monitor heartbeat');
+      monitor.noobly.core.services.caching.set('monitor-running', Date());
    });
 
    // Launch a test server
-   monitor.noobs.core.services.interface.listen(process.env.PORT || monitor.noobs.core.configuration.get('server.port'), function (port) {
-      monitor.noobs.core.services.logging.warn(monitor.noobs.core.configuration.get('application.name') + ': running on ' + port + ' in ' + process.cwd() + '\n');
+   monitor.noobly.core.services.interface.listen(process.env.PORT || monitor.noobly.core.configuration.get('server.port'), function (port) {
+      monitor.noobly.core.services.logging.warn(monitor.noobly.core.configuration.get('application.name') + ': running on ' + port + ' in ' + process.cwd() + '\n');
    });
 
 }();

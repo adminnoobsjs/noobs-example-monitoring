@@ -31,7 +31,7 @@ module.exports = function (moduleManager) {
     _viewManager.initialise = function () {
 
         // Extract the inverface manager from the parameters and configure
-        var _interfaceManager = moduleManager.noobs.core.services.interface ?  moduleManager.noobs.core.services.interface : null;
+        var _interfaceManager = moduleManager.noobly.core.services.interface ?  moduleManager.noobly.core.services.interface : null;
         _interfaceManager.app().use(express.json())
         _interfaceManager.app().use(_viewManager.replaceNavigation)
   
